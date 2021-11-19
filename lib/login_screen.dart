@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
         decoration: BoxDecoration(
           color: turquoise,
           borderRadius: BorderRadius.circular(30),
-          //TODO on focus
+          //TODO: on focus
           //boxShadow: const[
             //BoxShadow(
               //color: Colors.white24,
@@ -81,7 +81,7 @@ Widget buildPassword(){
         decoration: BoxDecoration(
           color: turquoise,
           borderRadius: BorderRadius.circular(30),
-          //TODO on focus
+          //TODO: on focus
           //boxShadow: const[
             //BoxShadow(
               //color: Colors.white24,

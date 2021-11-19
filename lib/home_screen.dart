@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -70,8 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: Icon(Icons.settings),
               title: Text('Ustawienia'),
               onTap: () {
-                print("something");
-                Navigator.pop(context);
+                // Navigator.pop(context);
+                Navigator.popAndPushNamed(context, '/second');
               }
             ),
           ],
