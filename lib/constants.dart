@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const DarkBlue = Color(0x22577AFF);
-const Turquoise = Color(0x38A3A5FF);
-const TextColor = Color(0xEEEEEEFF);
-const BackgroundColor = Color(0x373A40FF);
+const DarkBlue = Color(0xFF22577A);
+const Turquoise = Color(0xFF38A3A5);
+const TextColor = Color(0xFFEEEEEE);
+const BackgroundColor = Color(0xFF373A40);
