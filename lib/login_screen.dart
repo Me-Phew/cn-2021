@@ -42,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
         height: 60,
         child: const TextField(
           keyboardType: TextInputType.emailAddress,
+          cursorColor: backgroundColor,
           style: TextStyle(
             color: backgroundColor,
           ),
@@ -93,6 +94,7 @@ Widget buildPassword(){
         height: 60,
         child: const TextField(
           obscureText: true,
+          cursorColor: backgroundColor,
           style: TextStyle(
             color: backgroundColor,
           ),
