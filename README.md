@@ -1,5 +1,4 @@
-# smart_family
-
+# Smart Family
 Coding Night 2021 - Team Null
 
 ## Getting Started
