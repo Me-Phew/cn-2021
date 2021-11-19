@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:smart_family/constants.dart';
+import 'package:smart_family/colors.dart';
 
 class LoginScreen extends StatefulWidget{
   @override
@@ -19,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
       const Text(
         'Email',
         style: TextStyle(
-          color: TextColor,
+          color: textColor,
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Container(
         alignment: Alignment.centerLeft,
         decoration: BoxDecoration(
-          color: Turquoise,
+          color: turquoise,
           borderRadius: BorderRadius.circular(30),
           //TODO on focus
           //boxShadow: const[
@@ -43,14 +43,14 @@ class _LoginScreenState extends State<LoginScreen> {
         child: const TextField(
           keyboardType: TextInputType.emailAddress,
           style: TextStyle(
-            color: BackgroundColor,
+            color: backgroundColor,
           ),
           decoration: InputDecoration(
             border: InputBorder.none,
             contentPadding: EdgeInsets.only(top: 14),
             prefixIcon: Icon(
               Icons.email,
-              color: BackgroundColor,
+              color: backgroundColor,
             ),
             hintText: 'Email',
             hintStyle: TextStyle(
@@ -70,7 +70,7 @@ Widget buildPassword(){
       const Text(
         'Hasło',
         style: TextStyle(
-          color: TextColor,
+          color: textColor,
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
@@ -79,7 +79,7 @@ Widget buildPassword(){
       Container(
         alignment: Alignment.centerLeft,
         decoration: BoxDecoration(
-          color: Turquoise,
+          color: turquoise,
           borderRadius: BorderRadius.circular(30),
           //TODO on focus
           //boxShadow: const[
@@ -94,14 +94,14 @@ Widget buildPassword(){
         child: const TextField(
           obscureText: true,
           style: TextStyle(
-            color: BackgroundColor,
+            color: backgroundColor,
           ),
           decoration: InputDecoration(
             border: InputBorder.none,
             contentPadding: EdgeInsets.only(top: 14),
             prefixIcon: Icon(
               Icons.lock,
-              color: BackgroundColor,
+              color: backgroundColor,
             ),
             hintText: 'Hasło',
             hintStyle: TextStyle(
@@ -139,7 +139,7 @@ Widget buildRememberCb(){
           data: ThemeData(unselectedWidgetColor: Colors.white),
           child: Checkbox(
             value: isRememberMe,
-            checkColor: Turquoise,
+            checkColor: turquoise,
             activeColor: Colors.white,
             onChanged: (value){
               setState(() {
@@ -151,7 +151,7 @@ Widget buildRememberCb(){
          const Text(
           'Zapamiętaj mnie',
           style: TextStyle(
-            color: TextColor,
+            color: textColor,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -177,7 +177,7 @@ Widget buildLoginBtn(){
       child: const Text(
         'Zaloguj się',
         style: TextStyle(
-          color: BackgroundColor,
+          color: backgroundColor,
           fontSize: 20, 
           fontWeight: FontWeight.bold
           ),
@@ -195,7 +195,7 @@ Widget buildSignUpBtn(){
           TextSpan(
             text: 'Nie posiadasz konta? ',
             style: TextStyle(
-              color: TextColor,
+              color: textColor,
               fontSize: 18,
               fontWeight: FontWeight.w500,
             ),
@@ -203,7 +203,7 @@ Widget buildSignUpBtn(){
           TextSpan(
             text: 'Zarejestruj się',
             style: TextStyle(
-              color: Turquoise,
+              color: turquoise,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
@@ -229,10 +229,10 @@ Widget buildSignUpBtn(){
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      BackgroundColor,
-                      BackgroundColor,
-                      BackgroundColor,
-                      BackgroundColor,
+                      backgroundColor,
+                      backgroundColor,
+                      backgroundColor,
+                      backgroundColor,
                     ]
                   ),
                 ),
@@ -247,7 +247,7 @@ Widget buildSignUpBtn(){
                     const Text(
                       'Zaloguj się',
                       style: TextStyle(
-                        color: TextColor,
+                        color: textColor,
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
                       ),
