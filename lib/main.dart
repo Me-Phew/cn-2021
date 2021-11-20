@@ -20,7 +20,8 @@ class App extends StatelessWidget{
     return MaterialApp(
       title: 'Smart Family',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
+      //initialRoute: '/home',
+      initialRoute: '/login',
       routes: {
         '/login': (context) => Login(),
         '/home': (context) => const Home(),

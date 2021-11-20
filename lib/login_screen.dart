@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smart_family/colors.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class Login extends StatefulWidget{
   @override
@@ -14,15 +15,42 @@ class _LoginState extends State<Login> {
   bool isRememberMe = false;
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  nullFieldAllert(){
+    Alert(
+      context: context,
+      title: 'Nie tak szybko...',
+      desc: 'Te pola nie mogą być puste',
+      buttons: [
+        DialogButton(
+          child: Text('OK'),
+          onPressed: () => Navigator.pop(context),
+          color: Color(0xEEFFFFFF),
+        ),
+      ],
+    ).show();
+  }
+  bothFieldsHaveValues(){
+    Alert(
+      context: context,
+      title: 'Gratulacje!!!',
+      desc: 'Udało ci się zalogować',
+      buttons: [
+        DialogButton(
+          child: Text('OK'),
+          onPressed: () => Navigator.pop(context),
+          color: Color(0xEEFFFFFF),
+        ),
+      ],
+    ).show();
+  }
   checkForEmptyTextField(){
     String email, password;
     email = emailController.text;
     password = passwordController.text;
     if(email == '' || password == ''){
-      print('puste');
+      nullFieldAllert();
     } else {
-      const AlertDialog(title: Text('Pomyślnie zalogowano'));
-      print('zalogowano');
+      bothFieldsHaveValues();
     }
   }
 
