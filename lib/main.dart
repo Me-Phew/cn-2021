@@ -21,11 +21,10 @@ class App extends StatelessWidget{
     return MaterialApp(
       title: 'Smart Family',
       debugShowCheckedModeBanner: false,
-      //initialRoute: '/home',
-      home: Register(),
-      //initialRoute: '/login',
-      /*routes: {
-        '/login': (context) => Login(),
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => const Login(),
+        '/register': (context) => const Register(),
         '/home': (context) => const Home(),
         '/chat': (context) => const Chat(),
         '/homeBudget': (context) => const HomeBudget(),
@@ -35,7 +34,7 @@ class App extends StatelessWidget{
         '/localization': (context) => const Localization(),
         '/myFamily': (context) => const MyFamily(),
         '/settings': (context) => const Settings(),
-      },*/
+      },
     );
   }
 }

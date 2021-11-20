@@ -4,8 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smart_family/colors.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'pages.dart';
+import 'static_routes.dart';
 
 class Login extends StatefulWidget{
+  const Login({Key? key}) : super(key: key);
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -30,18 +34,7 @@ class _LoginState extends State<Login> {
     ).show();
   }
   bothFieldsHaveValues(){
-    Alert(
-      context: context,
-      title: 'Gratulacje!!!',
-      desc: 'Udało ci się zalogować',
-      buttons: [
-        DialogButton(
-          child: const Text('OK'),
-          onPressed: () => Navigator.pop(context),
-          color:  const Color(0xEEFFFFFF),
-        ),
-      ],
-    ).show();
+    goToPage(context, Pages.home);
     return true;
   }
   checkForEmptyTextField(){
@@ -51,6 +44,7 @@ class _LoginState extends State<Login> {
     if(email == '' || password == ''){
       nullFieldAllert();
     } else {
+      const AlertDialog(title: Text('Pomyślnie zalogowano'));
       bothFieldsHaveValues();
     }
   }
@@ -161,22 +155,6 @@ Widget buildPassword(){
   );
 }
 
-/*Widget buildForgotPasswordBtn(){
-  return Container(
-    alignment: Alignment.centerRight,
-    child: TextButton(
-      style: TextButton.styleFrom(
-        padding: const EdgeInsets.only(right: 0),
-        textStyle: const TextStyle(fontWeight: FontWeight.bold, color: TextColor),
-      ),
-      onPressed: () {},
-      child: const Text('Nie pamiętam hasła', 
-      style: TextStyle(color: TextColor)),
-    ),
-  );
-}
-*/
-
 Widget buildRememberCb(){
   return Container(
     height: 20,
@@ -195,13 +173,13 @@ Widget buildRememberCb(){
             },
           ),
         ),
-         const Text(
-          'Zapamiętaj mnie',
-          style: TextStyle(
-            color: textColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+      const Text(
+      'Zapamiętaj mnie',
+      style: TextStyle(
+      color: textColor,
+      fontWeight: FontWeight.bold,
+      ),
+      ),
       ],
     ),
   );
@@ -235,7 +213,9 @@ Widget buildLoginBtn(){
 
 Widget buildSignUpBtn(){
   return GestureDetector(
-    onTap: (){},
+    onTap: (){
+      goToPage(context, Pages.registration);
+    },
     child: RichText(
       text: const TextSpan(
         children: [
