@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_family/registration_screen.dart';
 import 'pages.dart';
 import 'home.dart';
 import 'chat.dart';
@@ -9,12 +10,18 @@ import 'calendar.dart';
 import 'localization.dart';
 import 'my_family.dart';
 import 'settings.dart';
+import 'login_screen.dart';
 
 void goToPage(context, page) {
     Navigator.pop(context);
     MaterialPageRoute route;
 
     switch (page) {
+        case Pages.login:
+            route = MaterialPageRoute(
+                builder: (context) => const Login()
+            );
+            break;
         case Pages.home:
             route = MaterialPageRoute(
                 builder: (context) => const Home()
@@ -58,6 +65,11 @@ void goToPage(context, page) {
         case Pages.settings:
             route = MaterialPageRoute(
                 builder: (context) => const Settings(),
+            );
+            break;
+        case Pages.registration:
+            route = MaterialPageRoute(
+                builder: (context) => const Register(),
             );
             break;
         default:

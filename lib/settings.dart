@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_family/pages.dart';
 import 'static_routes.dart';
 import 'colors.dart';
 import 'pages_data.dart';
@@ -17,11 +18,10 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: turquoise,
-          title: const Text('Ustawienia'),
+          title: const Text('Strona główna'),
         ),
         drawer: Drawer(
-          child:
-          Container (
+          child: Container (
             color: backgroundColor,
             child: ListView(
               padding: EdgeInsets.zero,
@@ -44,7 +44,7 @@ class _SettingsState extends State<Settings> {
                   itemBuilder: (BuildContext context, int index) => ListTile(
                     leading: Icon(leadingIcons[index],
                         color: selectedTile == index ? cyan : textColor,
-                        size: 35) ,
+                        size: 35),
                     title: Text(titleList[index],
                         style: Theme.of(context).textTheme.headline5!.copyWith(
                             color: selectedTile == index ? cyan : textColor
@@ -59,6 +59,25 @@ class _SettingsState extends State<Settings> {
                     },
                   ),
                 ),
+                ListView(
+                  padding: const EdgeInsets.all(0),
+                  shrinkWrap: true,
+                  physics: const ClampingScrollPhysics(),
+                  children: [
+                    ListTile(
+                      leading: const Icon(Icons.logout,
+                          color: textColor,
+                          size: 35),
+                      title: Text('Wyloguj się',
+                        style: Theme.of(context).textTheme.headline5! // TODO: HERE
+                            .copyWith(color: textColor),
+                      ),
+                      onTap: () {
+                        goToPage(context, Pages.login);
+                      },
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -66,7 +85,6 @@ class _SettingsState extends State<Settings> {
         body: Container (
             color: backgroundColor,
             child: GridView.count(
-
               primary: false,
               padding: const EdgeInsets.all(20),
               crossAxisSpacing: 10,

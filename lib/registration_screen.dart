@@ -4,25 +4,24 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smart_family/colors.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:smart_family/static_routes.dart';
+import 'static_routes.dart';
+import 'pages.dart';
 
 class Register extends StatefulWidget{
+  const Register({Key? key}) : super(key: key);
+
   @override
   _RegisterState createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
 
-  //List<String> _locations = ['mama', 'tata', 'syn', 'córka']; // Option 2
-  //String _selectedLocation = ''; 
   String choosenValue = '';
   List roleItem = [
     'mama', 'tata', 'syn', 'córka'
   ];
-  //bool operator ==(dynamic other) =>
-      //other != null && other is TimeSelection && this.hour == other.hour;
 
-  //@override
-  //int get hashCode => super.hashCode;
   @override
   void initState(){
     super.initState();
@@ -62,18 +61,7 @@ class _RegisterState extends State<Register> {
     ).show();
   }
   bothFieldsHaveValues(){
-    Alert(
-      context: context,
-      title: 'Gratulacje!!!',
-      desc: 'Udało ci się zarejestrować',
-      buttons: [
-        DialogButton(
-          child: const Text('OK'),
-          onPressed: () => Navigator.pop(context),
-          color: const Color(0xEEFFFFFF),
-        ),
-      ],
-    ).show();
+    goToPage(context, Pages.home);
   }
   checkForEmptyTextField(){
     String email, password, name, surename, repassword;
@@ -382,7 +370,9 @@ Widget buildRegisterBtn(){
 
 Widget buildLogInBtn(){
   return GestureDetector(
-    onTap: (){},
+    onTap: (){
+      goToPage(context, Pages.login);
+    },
     child: RichText(
       text: const TextSpan(
         children: [
@@ -429,27 +419,25 @@ Widget buildLogInBtn(){
   );
 }*/
 Widget buildDropDown(){
-  return Container(
-    child: Theme(
-      data: Theme.of(context).copyWith(
-        canvasColor: turquoise,
+  return Theme(
+    data: Theme.of(context).copyWith(
+      canvasColor: turquoise,
+    ),
+    child: DropdownButton(
+      style: const TextStyle(
+        color: textColor,
       ),
-      child: DropdownButton(
-        style: const TextStyle(
-          color: textColor,
-        ),
-        hint: const Text('Wybierz swoją rolę'),
-        value: choosenValue,
-        onChanged: (value){
-          setState(()
-          {
-            choosenValue = value as String;
-          });
-        },
-        items: roleItem.map((item){
-          return DropdownMenuItem(value: item, child: Text(item),);
-        }).toList()
-      ),
+      hint: const Text('Wybierz swoją rolę'),
+      value: choosenValue,
+      onChanged: (value){
+        setState(()
+        {
+          choosenValue = value as String;
+        });
+      },
+      items: roleItem.map((item){
+        return DropdownMenuItem(value: item, child: Text(item),);
+      }).toList()
     ),
   );
 }
