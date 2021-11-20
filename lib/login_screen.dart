@@ -194,7 +194,7 @@ Widget buildLoginBtn(){
         elevation: 5,
         padding: const EdgeInsets.all(15),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20)
+          borderRadius: BorderRadius.circular(25)
         ),
         primary: const Color(0xEEFFFFFF),
       ),
@@ -286,7 +286,9 @@ Widget buildSignUpBtn(){
                     const SizedBox(height: 20),
                     //buildForgotPasswordBtn(),
                     buildRememberCb(),
+                    const SizedBox(height: 20),
                     buildLoginBtn(),
+                    const SizedBox(height: 20),
                     buildSignUpBtn(),
                   ],
                 ),

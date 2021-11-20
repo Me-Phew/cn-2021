@@ -13,7 +13,7 @@ import 'settings.dart';
 import 'login_screen.dart';
 
 void goToPage(context, page) {
-    Navigator.pop(context);
+    // Navigator.pop(context);
     MaterialPageRoute route;
 
     switch (page) {

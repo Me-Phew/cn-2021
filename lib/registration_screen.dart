@@ -4,9 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smart_family/colors.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:smart_family/helpers/resolve_error.dart';
 import 'package:smart_family/static_routes.dart';
 import 'static_routes.dart';
 import 'pages.dart';
+import 'registration_service.dart';
+import 'package:http/src/response.dart';
 
 class Register extends StatefulWidget{
   const Register({Key? key}) : super(key: key);
@@ -32,6 +35,20 @@ class _RegisterState extends State<Register> {
   final nameController = TextEditingController();
   final surnameController = TextEditingController();
   final rePasswordController = TextEditingController();
+  showAlert(String desc){
+    Alert(
+      context: context,
+      title: 'Nie tak szybko...',
+      desc: desc,
+      buttons: [
+        DialogButton(
+          child: const Text('OK'),
+          onPressed: () => Navigator.pop(context),
+          color: const Color(0xEEFFFFFF),
+        ),
+      ],
+    ).show();
+  }
   notSamePasswords(){
     Alert(
       context: context,
@@ -60,10 +77,7 @@ class _RegisterState extends State<Register> {
       ],
     ).show();
   } 
-  bothFieldsHaveValues(){
-    goToPage(context, Pages.home);
-  }
-  checkForEmptyTextField(){
+  bool checkForEmptyTextField(){
     String email, password, name, surename, repassword;
     email = emailController.text;
     password = passwordController.text;
@@ -72,10 +86,12 @@ class _RegisterState extends State<Register> {
     surename = surnameController.text;
     if(email == '' || password == '' || name == '' || surename == '' || repassword == ''){
       nullFieldAllert();
+      return false;
     } else if(password != repassword) {
       notSamePasswords();
+      return false;
     } else {
-      bothFieldsHaveValues();
+      return true;
     }
   }
 
@@ -355,7 +371,16 @@ Widget buildRegisterBtn(){
         ),
         primary: const Color(0xEEFFFFFF),
       ),
-      onPressed: checkForEmptyTextField,
+      onPressed: () async {
+        if(checkForEmptyTextField()) {
+          Response res = await registerUser(nameController.text, surnameController.text, emailController.text, choosenValue, passwordController.text, rePasswordController.text);
+          if (res.body.contains('errorNum')) {
+            showAlert(resolveError(res.body[res.body.indexOf("errorNum")]));
+          } else {
+            goToPage(context, Pages.login);
+          }
+        }
+        },
       child: const Text(
         'Zarejestruj się',
         style: TextStyle(
