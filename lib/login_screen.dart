@@ -178,8 +178,8 @@ Widget buildRememberCb(){
       style: TextStyle(
       color: textColor,
       fontWeight: FontWeight.bold,
-      ),
-      ),
+          ),
+        ),
       ],
     ),
   );
