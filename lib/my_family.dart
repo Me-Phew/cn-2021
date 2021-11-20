@@ -92,7 +92,7 @@ class _MyFamilyState extends State<MyFamily> {
               crossAxisCount: 1,
               children: <Widget>[
                 Container(
-                  child: Text('He\'d have you all unravel at the asda ihsadiu ashyf9pasiu haspifh aosifh oasihfoi asfio ahsoifhasoifh asoifh asoiuf oaishf ',
+                  child: Text('Tutaj kiedyś będzie rodzinne drzewo genealogiczne',
                       style: Theme.of(context).textTheme.headline4!.copyWith(color: textColor)),
                   padding: const EdgeInsets.all(8),
                   color: lightGrey,

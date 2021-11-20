@@ -92,7 +92,7 @@ class _FridgeState extends State<Fridge> {
               crossAxisCount: 1,
               children: <Widget>[
                 Container(
-                  child: Text('He\'d have you all unravel at the asda ihsadiu ashyf9pasiu haspifh aosifh oasihfoi asfio ahsoifhasoifh asoifh asoiuf oaishf ',
+                  child: Text('Tutaj kiedyś będą wyświetlać się produkty które są w lodówce',
                       style: Theme.of(context).textTheme.headline4!.copyWith(color: textColor)),
                   padding: const EdgeInsets.all(8),
                   color: lightGrey,

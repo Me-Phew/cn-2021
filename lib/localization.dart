@@ -92,7 +92,7 @@ class _LocalizationState extends State<Localization> {
               crossAxisCount: 1,
               children: <Widget>[
                 Container(
-                  child: Text('He\'d have you all unravel at the asda ihsadiu ashyf9pasiu haspifh aosifh oasihfoi asfio ahsoifhasoifh asoifh asoiuf oaishf ',
+                  child: Text('Tutaj kiedyś będzie wyświetlać się obecna lokalizacja wszystkich członków rodziny',
                       style: Theme.of(context).textTheme.headline4!.copyWith(color: textColor)),
                   padding: const EdgeInsets.all(8),
                   color: lightGrey,
