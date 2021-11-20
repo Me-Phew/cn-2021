@@ -33,6 +33,20 @@ class _RegisterState extends State<Register> {
   final nameController = TextEditingController();
   final surnameController = TextEditingController();
   final rePasswordController = TextEditingController();
+  notSamePasswords(){
+    Alert(
+      context: context,
+      title: 'Nie tak szybko...',
+      desc: 'Podane hasła muszą się zgadzać',
+      buttons: [
+        DialogButton(
+          child: const Text('OK'),
+          onPressed: () => Navigator.pop(context),
+          color: const Color(0xEEFFFFFF),
+        ),
+      ],
+    ).show();
+  }
   nullFieldAllert(){
     Alert(
       context: context,
@@ -40,9 +54,9 @@ class _RegisterState extends State<Register> {
       desc: 'Te pola nie mogą być puste',
       buttons: [
         DialogButton(
-          child: Text('OK'),
+          child: const Text('OK'),
           onPressed: () => Navigator.pop(context),
-          color: Color(0xEEFFFFFF),
+          color: const Color(0xEEFFFFFF),
         ),
       ],
     ).show();
@@ -51,22 +65,27 @@ class _RegisterState extends State<Register> {
     Alert(
       context: context,
       title: 'Gratulacje!!!',
-      desc: 'Udało ci się zalogować',
+      desc: 'Udało ci się zarejestrować',
       buttons: [
         DialogButton(
-          child: Text('OK'),
+          child: const Text('OK'),
           onPressed: () => Navigator.pop(context),
-          color: Color(0xEEFFFFFF),
+          color: const Color(0xEEFFFFFF),
         ),
       ],
     ).show();
   }
   checkForEmptyTextField(){
-    String email, password;
+    String email, password, name, surename, repassword;
     email = emailController.text;
     password = passwordController.text;
-    if(email == '' || password == ''){
+    name = nameController.text;
+    repassword = rePasswordController.text;
+    surename = surnameController.text;
+    if(email == '' || password == '' || name == '' || surename == '' || repassword == ''){
       nullFieldAllert();
+    } else if(password != repassword) {
+      notSamePasswords();
     } else {
       bothFieldsHaveValues();
     }

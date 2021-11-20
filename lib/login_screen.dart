@@ -22,9 +22,9 @@ class _LoginState extends State<Login> {
       desc: 'Te pola nie mogą być puste',
       buttons: [
         DialogButton(
-          child: Text('OK'),
+          child: const Text('OK'),
           onPressed: () => Navigator.pop(context),
-          color: Color(0xEEFFFFFF),
+          color: const Color(0xEEFFFFFF),
         ),
       ],
     ).show();
@@ -36,9 +36,9 @@ class _LoginState extends State<Login> {
       desc: 'Udało ci się zalogować',
       buttons: [
         DialogButton(
-          child: Text('OK'),
+          child: const Text('OK'),
           onPressed: () => Navigator.pop(context),
-          color: Color(0xEEFFFFFF),
+          color:  const Color(0xEEFFFFFF),
         ),
       ],
     ).show();
