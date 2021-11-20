@@ -2,10 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:http/http.dart';
 import 'package:smart_family/colors.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:smart_family/login_services.dart';
+import 'helpers/resolve_error.dart';
 import 'pages.dart';
 import 'static_routes.dart';
+import 'package:http/src/response.dart';
 
 class Login extends StatefulWidget{
   const Login({Key? key}) : super(key: key);
@@ -33,19 +37,33 @@ class _LoginState extends State<Login> {
       ],
     ).show();
   }
+  showAlert(String desc){
+    Alert(
+      context: context,
+      title: 'Nie tak szybko...',
+      desc: desc,
+      buttons: [
+        DialogButton(
+          child: const Text('OK'),
+          onPressed: () => Navigator.pop(context),
+          color: const Color(0xEEFFFFFF),
+        ),
+      ],
+    ).show();
+  }
   bothFieldsHaveValues(){
     goToPage(context, Pages.home);
     return true;
   }
-  checkForEmptyTextField(){
+  bool checkForEmptyTextField(){
     String email, password;
     email = emailController.text;
     password = passwordController.text;
     if(email == '' || password == ''){
       nullFieldAllert();
+      return false;
     } else {
-      const AlertDialog(title: Text('Pomyślnie zalogowano'));
-      bothFieldsHaveValues();
+      return true;
     }
   }
 
@@ -198,7 +216,16 @@ Widget buildLoginBtn(){
         ),
         primary: const Color(0xEEFFFFFF),
       ),
-      onPressed: checkForEmptyTextField,
+      onPressed: () async {
+        if(checkForEmptyTextField()) {
+          Response res = await loginUser(emailController.text, passwordController.text);
+           if (res.body.contains('errorNum')) {
+            showAlert(resolveError(res.body[res.body.indexOf("errorNum")]));
+          } else {
+            goToPage(context, Pages.home);
+          }
+        }
+      },
       child: const Text(
         'Zaloguj się',
         style: TextStyle(
