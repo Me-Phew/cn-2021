@@ -84,18 +84,19 @@ class _HomeBudgetState extends State<HomeBudget> {
         ),
         body: Container (
             color: backgroundColor,
-            child: GridView.count(
-              primary: false,
-              padding: const EdgeInsets.all(20),
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              crossAxisCount: 1,
-              children: <Widget>[
-                Container(
-                  child: Text('He\'d have you all unravel at the asda ihsadiu ashyf9pasiu haspifh aosifh oasihfoi asfio ahsoifhasoifh asoifh asoiuf oaishf ',
-                      style: Theme.of(context).textTheme.headline4!.copyWith(color: textColor)),
-                  padding: const EdgeInsets.all(8),
-                  color: lightGrey,
+            child: ListView (
+              children: const [
+                ListTile(
+                  leading: (
+                  Icon(Icons.euro,
+                  color: textColor,
+                  size: 30)
+                  ),
+                  title: (
+                  Text('Stan konta: ',
+                  style: TextStyle(color: textColor, fontSize: 30),
+                  textAlign: TextAlign.center)
+                  ),
                 ),
               ],
             )

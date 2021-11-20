@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_family/pages.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'static_routes.dart';
 import 'colors.dart';
 import 'pages_data.dart';
@@ -83,13 +84,70 @@ class _CalendarState extends State<Calendar> {
             ),
           ),
         ),
-        body: SfCalendar(
-          view: CalendarView.month,
+        body: Container(
+          color: textColor,
+          child: (
+              ListView(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                children: [
+                  const ListTile (
+                    leading: Icon(Icons.event,
+                        color: turquoise),
+                    title: Text('Nadchodzące wydarzenia',
+                      style: TextStyle(color: turquoise),
+                      textAlign: TextAlign.center,),
+                  ),
+                  ListTile (
+                    title: SfCalendar(view: CalendarView.month),
+                  ),
+                  ListView(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      children: [
+                        const ListTile (
+                          leading: Icon(Icons.more_time,
+                              color: turquoise),
+                          title: Text('Reminders',
+                            style: TextStyle(color: textColor),
+                          ),
+                        ),
+                        ListTile (
+                            title: SfRadialGauge(
+                                axes: <RadialAxis>[
+                                  RadialAxis(minimum: 0, maximum: 150,
+                                      ranges: <GaugeRange>[
+                                        GaugeRange(startValue: 0, endValue: 50, color:Colors.green),
+                                        GaugeRange(startValue: 50,endValue: 100,color: Colors.orange),
+                                        GaugeRange(startValue: 100,endValue: 168,color: Colors.red)],
+                                      pointers: const <GaugePointer>[
+                                        NeedlePointer(value: 108)],
+                                      annotations: const <GaugeAnnotation>[
+                                        GaugeAnnotation(widget: Text('01 h 48 min',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
+                                            angle: 90, positionFactor: 0.5
+                                        )]
+                                  )])
+                        ),
+                        ListTile (
+                            title: ElevatedButton(
+                                onPressed: () {
+                                  print('');
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    minimumSize: const Size(150, 80)
+                                ),
+                                child: const Text('Dodaj przypomnienie'))
+                        )
+                      ]
+                  )
+                ],
+              )
+          ),
         ),
     );
   }
+}
 
   _updateSelectedListTile(int index) {
     selectedTile = index;
   }
-}
