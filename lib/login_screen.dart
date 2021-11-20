@@ -216,16 +216,17 @@ Widget buildLoginBtn(){
         ),
         primary: const Color(0xEEFFFFFF),
       ),
-      onPressed: () async {
-        if(checkForEmptyTextField()) {
-          Response res = await loginUser(emailController.text, passwordController.text);
-           if (res.body.contains('errorNum')) {
-            showAlert(resolveError(res.body[res.body.indexOf("errorNum")]));
-          } else {
-            goToPage(context, Pages.home);
-          }
-        }
-      },
+      onPressed: () {goToPage(context, Pages.home);},
+      // onPressed: () async {
+      //   if(checkForEmptyTextField()) {
+      //     Response res = await loginUser(emailController.text, passwordController.text);
+      //      if (res.body.contains('errorNum')) {
+      //       showAlert(resolveError(res.body[res.body.indexOf("errorNum")]));
+      //     } else {
+      //       goToPage(context, Pages.home);
+      //     }
+      //   }
+      // },
       child: const Text(
         'Zaloguj się',
         style: TextStyle(
