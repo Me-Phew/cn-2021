@@ -4,12 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smart_family/colors.dart';
 
-class LoginScreen extends StatefulWidget{
+class Login extends StatefulWidget{
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _LoginState createState() => _LoginState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginState extends State<Login> {
 
   bool isRememberMe = false;
   final emailController = TextEditingController();
