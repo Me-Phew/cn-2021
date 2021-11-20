@@ -60,7 +60,7 @@ class _RegisterState extends State<Register> {
         ),
       ],
     ).show();
-  }
+  } 
   bothFieldsHaveValues(){
     Alert(
       context: context,
