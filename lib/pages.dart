@@ -1,5 +1,6 @@
 enum Pages {
   login,
+  registration,
   home,
   chat,
   homeBudget,

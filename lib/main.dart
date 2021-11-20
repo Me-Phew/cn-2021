@@ -9,6 +9,7 @@ import 'calendar.dart';
 import 'localization.dart';
 import 'my_family.dart';
 import 'settings.dart';
+import 'registration_screen.dart';
 
 void main() => runApp(const App());
 
@@ -21,8 +22,9 @@ class App extends StatelessWidget{
       title: 'Smart Family',
       debugShowCheckedModeBanner: false,
       //initialRoute: '/home',
-      initialRoute: '/login',
-      routes: {
+      home: Register(),
+      //initialRoute: '/login',
+      /*routes: {
         '/login': (context) => Login(),
         '/home': (context) => const Home(),
         '/chat': (context) => const Chat(),
@@ -33,7 +35,7 @@ class App extends StatelessWidget{
         '/localization': (context) => const Localization(),
         '/myFamily': (context) => const MyFamily(),
         '/settings': (context) => const Settings(),
-      },
+      },*/
     );
   }
 }
