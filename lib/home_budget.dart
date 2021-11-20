@@ -18,7 +18,7 @@ class _HomeBudgetState extends State<HomeBudget> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: turquoise,
-          title: const Text('Strona główna'),
+          title: const Text('Budżet domowy'),
         ),
         drawer: Drawer(
           child: Container (

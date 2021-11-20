@@ -1,1 +1,1 @@
-String BASE_API_URL = "http://10.8.8.114:3000/";
+const String baseApiUrl = "http://10.8.8.114:3000/";

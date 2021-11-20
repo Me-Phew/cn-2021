@@ -18,7 +18,7 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: turquoise,
-          title: const Text('Strona główna'),
+          title: const Text('Ustawienia'),
         ),
         drawer: Drawer(
           child: Container (

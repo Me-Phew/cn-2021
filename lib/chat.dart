@@ -18,7 +18,7 @@ class _ChatState extends State<Chat> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: turquoise,
-          title: const Text('Strona główna'),
+          title: const Text('Czat'),
         ),
         drawer: Drawer(
           child: Container (

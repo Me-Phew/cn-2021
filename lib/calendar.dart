@@ -3,6 +3,7 @@ import 'package:smart_family/pages.dart';
 import 'static_routes.dart';
 import 'colors.dart';
 import 'pages_data.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _CalendarState extends State<Calendar> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: turquoise,
-          title: const Text('Strona główna'),
+          title: const Text('Kalendarz'),
         ),
         drawer: Drawer(
           child: Container (
@@ -82,24 +83,9 @@ class _CalendarState extends State<Calendar> {
             ),
           ),
         ),
-        body: Container (
-            color: backgroundColor,
-            child: GridView.count(
-              primary: false,
-              padding: const EdgeInsets.all(20),
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              crossAxisCount: 1,
-              children: <Widget>[
-                Container(
-                  child: Text('He\'d have you all unravel at the asda ihsadiu ashyf9pasiu haspifh aosifh oasihfoi asfio ahsoifhasoifh asoifh asoiuf oaishf ',
-                      style: Theme.of(context).textTheme.headline4!.copyWith(color: textColor)),
-                  padding: const EdgeInsets.all(8),
-                  color: lightGrey,
-                ),
-              ],
-            )
-        )
+        body: SfCalendar(
+          view: CalendarView.month,
+        ),
     );
   }
 

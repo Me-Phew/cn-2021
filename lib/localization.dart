@@ -18,7 +18,7 @@ class _LocalizationState extends State<Localization> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: turquoise,
-          title: const Text('Strona główna'),
+          title: const Text('Lokalizacja'),
         ),
         drawer: Drawer(
           child: Container (
