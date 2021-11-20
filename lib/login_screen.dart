@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -11,6 +12,19 @@ class Login extends StatefulWidget{
 class _LoginState extends State<Login> {
 
   bool isRememberMe = false;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  checkForEmptyTextField(){
+    String email, password;
+    email = emailController.text;
+    password = passwordController.text;
+    if(email == '' || password == ''){
+      print('puste');
+    } else {
+      const AlertDialog(title: Text('Pomyślnie zalogowano'));
+      print('zalogowano');
+    }
+  }
 
   Widget buildEmail(){
   return Column(
@@ -40,13 +54,14 @@ class _LoginState extends State<Login> {
           //]
         ),
         height: 60,
-        child: const TextField(
+        child: TextField(
+          controller: emailController,
           keyboardType: TextInputType.emailAddress,
           cursorColor: backgroundColor,
-          style: TextStyle(
+          style: const TextStyle(
             color: backgroundColor,
           ),
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             border: InputBorder.none,
             contentPadding: EdgeInsets.only(top: 14),
             prefixIcon: Icon(
@@ -92,13 +107,14 @@ Widget buildPassword(){
           //]
         ),
         height: 60,
-        child: const TextField(
+        child: TextField(
+          controller: passwordController,
           obscureText: true,
           cursorColor: backgroundColor,
-          style: TextStyle(
+          style: const TextStyle(
             color: backgroundColor,
           ),
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             border: InputBorder.none,
             contentPadding: EdgeInsets.only(top: 14),
             prefixIcon: Icon(
@@ -175,7 +191,7 @@ Widget buildLoginBtn(){
         ),
         primary: const Color(0xEEFFFFFF),
       ),
-      onPressed: (){},
+      onPressed: checkForEmptyTextField,
       child: const Text(
         'Zaloguj się',
         style: TextStyle(
