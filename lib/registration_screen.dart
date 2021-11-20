@@ -76,7 +76,7 @@ class _RegisterState extends State<Register> {
         ),
       ],
     ).show();
-  } 
+  }
   bool checkForEmptyTextField(){
     String email, password, name, surename, repassword;
     email = emailController.text;
@@ -113,14 +113,6 @@ class _RegisterState extends State<Register> {
         decoration: BoxDecoration(
           color: turquoise,
           borderRadius: BorderRadius.circular(30),
-          //TODO: on focus
-          //boxShadow: const[
-            //BoxShadow(
-              //color: Colors.white24,
-              //blurRadius: 6,
-              //offset: Offset(0,2),
-            //),
-          //]
         ),
         height: 45,
         child: TextField(
@@ -165,14 +157,6 @@ class _RegisterState extends State<Register> {
         decoration: BoxDecoration(
           color: turquoise,
           borderRadius: BorderRadius.circular(30),
-          //TODO: on focus
-          //boxShadow: const[
-            //BoxShadow(
-              //color: Colors.white24,
-              //blurRadius: 6,
-              //offset: Offset(0,2),
-            //),
-          //]
         ),
         height: 45,
         child: TextField(
@@ -217,14 +201,6 @@ class _RegisterState extends State<Register> {
         decoration: BoxDecoration(
           color: turquoise,
           borderRadius: BorderRadius.circular(30),
-          //TODO: on focus
-          //boxShadow: const[
-            //BoxShadow(
-              //color: Colors.white24,
-              //blurRadius: 6,
-              //offset: Offset(0,2),
-            //),
-          //]
         ),
         height: 45,
         child: TextField(
@@ -270,14 +246,6 @@ Widget buildPassword(){
         decoration: BoxDecoration(
           color: turquoise,
           borderRadius: BorderRadius.circular(30),
-          //TODO: on focus
-          //boxShadow: const[
-            //BoxShadow(
-              //color: Colors.white24,
-              //blurRadius: 6,
-              //offset: Offset(0,2),
-            //),
-          //]
         ),
         height: 45,
         child: TextField(
@@ -323,14 +291,6 @@ Widget buildRePassword(){
         decoration: BoxDecoration(
           color: turquoise,
           borderRadius: BorderRadius.circular(30),
-          //TODO: on focus
-          //boxShadow: const[
-            //BoxShadow(
-              //color: Colors.white24,
-              //blurRadius: 6,
-              //offset: Offset(0,2),
-            //),
-          //]
         ),
         height: 45,
         child: TextField(
@@ -422,27 +382,6 @@ Widget buildLogInBtn(){
   );
 }
 
-/*Widget buildDropDown(){
-  return Container(
-    child: DropdownButton(
-      hint: Text('Wybierz swoją rolę'),
-      value: _selectedLocation,
-      onChanged: (newValue){
-        setState(()
-        {
-          _selectedLocation = newValue as String;
-        });
-      },
-        items: _locations.map((location){
-          print(location);
-        return DropdownMenuItem(
-          child: new Text(location),
-          value: location,
-        );
-      }).toList(),
-    ),
-  );
-}*/
 Widget buildDropDown(){
   return Theme(
     data: Theme.of(context).copyWith(
@@ -479,16 +418,7 @@ Widget buildDropDown(){
                 height: double.infinity,
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      backgroundColor,
-                      backgroundColor,
-                      backgroundColor,
-                      backgroundColor,
-                    ]
-                  ),
+                  color: backgroundColor,
                 ),
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(
