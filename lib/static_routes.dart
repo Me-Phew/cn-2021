@@ -12,72 +12,61 @@ import 'settings.dart';
 
 void goToPage(context, page) {
     Navigator.pop(context);
+    MaterialPageRoute route;
 
     switch (page) {
         case Pages.home:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const Home(),
-                ));
+            route = MaterialPageRoute(
+                builder: (context) => const Home()
+            );
             break;
         case Pages.chat:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const Chat(),
-                ));
+            route = MaterialPageRoute(
+                builder: (context) => const Chat(),
+            );
             break;
         case Pages.homeBudget:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const HomeBudget(),
-                ));
+            route = MaterialPageRoute(
+                builder: (context) => const HomeBudget(),
+            );
             break;
         case Pages.fridge:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const Fridge(),
-                ));
+            route = MaterialPageRoute(
+                builder: (context) => const Fridge(),
+            );
             break;
         case Pages.shopping:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const Shopping(),
-                ));
+            route = MaterialPageRoute(
+                builder: (context) => const Shopping(),
+            );
             break;
         case Pages.calendar:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const Calendar(),
-                ));
+            route = MaterialPageRoute(
+                builder: (context) => const Calendar(),
+            );
             break;
         case Pages.localization:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const Localization(),
-                ));
+            route = MaterialPageRoute(
+                builder: (context) => const Localization(),
+            );
             break;
         case Pages.myFamily:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const MyFamily(),
-                ));
+            route = MaterialPageRoute(
+                builder: (context) => const MyFamily(),
+            );
             break;
         case Pages.settings:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const Settings(),
-                ));
+            route = MaterialPageRoute(
+                builder: (context) => const Settings(),
+            );
             break;
         default:
-            throw MaterialState.error;
+            route = MaterialPageRoute(
+                builder: (context) => const Home()
+            );
     }
+
+    Navigator.push(
+        context,
+        route);
 }
