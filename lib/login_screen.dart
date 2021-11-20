@@ -6,6 +6,8 @@ import 'package:smart_family/colors.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class Login extends StatefulWidget{
+  const Login({Key? key}) : super(key: key);
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -51,6 +53,7 @@ class _LoginState extends State<Login> {
     if(email == '' || password == ''){
       nullFieldAllert();
     } else {
+      const AlertDialog(title: Text('Pomyślnie zalogowano'));
       bothFieldsHaveValues();
     }
   }
