@@ -42,6 +42,7 @@ class _LoginState extends State<Login> {
         ),
       ],
     ).show();
+    return true;
   }
   checkForEmptyTextField(){
     String email, password;
