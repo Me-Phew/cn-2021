@@ -3,22 +3,22 @@ import 'static_routes.dart';
 import 'colors.dart';
 import 'pages.dart';
 
-class Chat extends StatefulWidget {
-  const Chat({Key? key}) : super(key: key);
+class Shopping extends StatefulWidget {
+  const Shopping({Key? key}) : super(key: key);
 
 
   @override
-  _ChatState createState() => _ChatState();
+  _ShoppingState createState() => _ShoppingState();
 }
 
-class _ChatState extends State<Chat> {
+class _ShoppingState extends State<Shopping> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: turquoise,
-        title: const Text('Chat'),
+        title: const Text('Zakupy'),
       ),
       drawer: Drawer(
         child: ListView(

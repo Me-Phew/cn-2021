@@ -3,22 +3,22 @@ import 'static_routes.dart';
 import 'colors.dart';
 import 'pages.dart';
 
-class Chat extends StatefulWidget {
-  const Chat({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
 
   @override
-  _ChatState createState() => _ChatState();
+  _HomeState createState() => _HomeState();
 }
 
-class _ChatState extends State<Chat> {
+class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: turquoise,
-        title: const Text('Chat'),
+        title: const Text('Strona główna'),
       ),
       drawer: Drawer(
         child: ListView(
@@ -38,67 +38,67 @@ class _ChatState extends State<Chat> {
               ),
             ),
             ListTile(
-                leading: const Icon(Icons.home),
-                title: const Text('Strona główna'),
+              leading: const Icon(Icons.home),
+              title: const Text('Strona główna'),
                 onTap: () {
                   goToPage(context, Pages.home);
                 }
             ),
             ListTile(
-                leading: const Icon(Icons.chat),
-                title: const Text('Czat'),
+              leading: const Icon(Icons.chat),
+              title: const Text('Czat'),
                 onTap: () {
                   goToPage(context, Pages.chat);
                 }
             ),
             ListTile(
-                leading: const Icon(Icons.euro),
-                title: const Text('Budżet domowy'),
+              leading: const Icon(Icons.euro),
+              title: const Text('Budżet domowy'),
                 onTap: () {
                   goToPage(context, Pages.homeBudget);
                 }
             ),
             ListTile(
-                leading: const Icon(Icons.fastfood),
-                title: const Text('Lodówka'),
+              leading: const Icon(Icons.fastfood),
+              title: const Text('Lodówka'),
                 onTap: () {
                   goToPage(context, Pages.fridge);
                 }
             ),
             ListTile(
-                leading: const Icon(Icons.shopping_cart),
-                title: const Text('Zakupy'),
+              leading: const Icon(Icons.shopping_cart),
+              title: const Text('Zakupy'),
                 onTap: () {
                   goToPage(context, Pages.shopping);
                 }
             ),
             ListTile(
-                leading: const Icon(Icons.calendar_today),
-                title: const Text('Kalendarz'),
+              leading: const Icon(Icons.calendar_today),
+              title: const Text('Kalendarz'),
                 onTap: () {
                   goToPage(context, Pages.calendar);
                 }
             ),
             ListTile(
-                leading: const Icon(Icons.gps_fixed),
-                title: const Text('Lokalizacja'),
+              leading: const Icon(Icons.gps_fixed),
+              title: const Text('Lokalizacja'),
                 onTap: () {
                   goToPage(context, Pages.localization);
                 }
             ),
             ListTile(
-                leading: const Icon(Icons.people),
-                title: const Text('Moja rodzina'),
+              leading: const Icon(Icons.people),
+              title: const Text('Moja rodzina'),
                 onTap: () {
                   goToPage(context, Pages.myFamily);
                 }
             ),
             ListTile(
-                leading: const Icon(Icons.settings),
-                title: const Text('Ustawienia'),
-                onTap: () {
-                  goToPage(context, Pages.settings);
-                }
+              leading: const Icon(Icons.settings),
+              title: const Text('Ustawienia'),
+              onTap: () {
+                goToPage(context, Pages.settings);
+              }
             ),
           ],
         ),
