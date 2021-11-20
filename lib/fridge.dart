@@ -18,7 +18,7 @@ class _FridgeState extends State<Fridge> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: turquoise,
-          title: const Text('Strona główna'),
+          title: const Text('Lodówka'),
         ),
         drawer: Drawer(
           child: Container (

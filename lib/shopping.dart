@@ -18,7 +18,7 @@ class _ShoppingState extends State<Shopping> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: turquoise,
-          title: const Text('Strona główna'),
+          title: const Text('Zakupy'),
         ),
         drawer: Drawer(
           child: Container (

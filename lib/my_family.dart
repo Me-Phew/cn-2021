@@ -18,7 +18,7 @@ class _MyFamilyState extends State<MyFamily> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: turquoise,
-          title: const Text('Strona główna'),
+          title: const Text('Moja rodzina'),
         ),
         drawer: Drawer(
           child: Container (
