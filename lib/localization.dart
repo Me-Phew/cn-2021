@@ -3,6 +3,7 @@ import 'package:smart_family/pages.dart';
 import 'static_routes.dart';
 import 'colors.dart';
 import 'pages_data.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Localization extends StatefulWidget {
   const Localization({Key? key}) : super(key: key);
@@ -13,6 +14,10 @@ class Localization extends StatefulWidget {
 
 class _LocalizationState extends State<Localization> {
 
+  late GoogleMapController mapController;
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,24 +87,11 @@ class _LocalizationState extends State<Localization> {
             ),
           ),
         ),
-        body: Container (
-            color: backgroundColor,
-            child: GridView.count(
-              primary: false,
-              padding: const EdgeInsets.all(20),
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              crossAxisCount: 1,
-              children: <Widget>[
-                Container(
-                  child: Text('Tutaj kiedyś będzie wyświetlać się obecna lokalizacja wszystkich członków rodziny',
-                      style: Theme.of(context).textTheme.headline4!.copyWith(color: textColor)),
-                  padding: const EdgeInsets.all(8),
-                  color: lightGrey,
-                ),
-              ],
-            )
-        )
+        body: GoogleMap(
+          onMapCreated: _onMapCreated,
+        mapType: MapType.hybrid,
+        initialCameraPosition: const CameraPosition(target: LatLng(49.808685,20.4067203), zoom: 15),
+      ),
     );
   }
 
@@ -107,3 +99,4 @@ class _LocalizationState extends State<Localization> {
     selectedTile = index;
   }
 }
+
